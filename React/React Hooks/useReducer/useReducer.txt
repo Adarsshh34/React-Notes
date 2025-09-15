@@ -1,0 +1,9 @@
+useReducer Hook — State Management Alternative to useState
+useReducer is a React hook used for managing complex state logic in functional components.
+It’s especially useful when:
+
+The state has multiple sub-values
+
+The next state depends on the previous state
+
+You want to centralize state logic like in Redux (but local to a component)

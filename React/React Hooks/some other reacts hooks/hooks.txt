@@ -1,0 +1,27 @@
+Hooks from React Router (commonly used with React)
+
+1. useNavigate
+
+2. useParams
+
+3. useLocation
+
+4. useSearchParams
+
+5. useOutlet
+
+
+Common React Hooks
+1. useState
+
+2. useEffect
+
+3. useContext
+
+4. useReducer
+
+5. useRef
+
+6. useMemo / useCallback
+
+7. useTransition / useDeferredValue (React 18 concepts if the interviewer asks)

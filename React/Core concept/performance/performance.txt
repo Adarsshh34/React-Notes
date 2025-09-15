@@ -1,0 +1,88 @@
+✅ 1️⃣ What is React’s Reconciliation Process?
+    Reconciliation is the process React uses to update the DOM efficiently.
+    When state or props change, React creates a new Virtual DOM tree.
+    It compares (diffs) the new Virtual DOM with the previous Virtual DOM.
+    React finds the minimal set of differences (called diffing algorithm) and applies those changes to the real DOM.
+    💬 In short:
+        “Reconciliation is React's way of comparing Virtual DOM trees and updating only the changed parts in the real DOM for optimal performance.”
+
+✅ 2️⃣ How Does React Handle Re-rendering?
+    When a state or props change:
+    The component and its child components re-render.
+    During rendering:
+    React builds a new Virtual DOM.
+    Performs reconciliation with the old tree.
+    Updates the real DOM based on the diff.
+    React also uses memoization (React.memo) and PureComponent to avoid re-rendering components unnecessarily.
+    💬 You can say:
+        “React re-renders components on state or prop change, but optimizes this with Virtual DOM diffing and memoization techniques like React.memo or useMemo.”
+
+✅ 3️⃣ What is Lazy Loading in React?
+    ✅ Lazy Loading in React — Detailed Explanation with Example
+    ✅ What is Lazy Loading?
+        Lazy Loading means loading components or resources only when they are needed, instead of loading everything at once when the app starts.
+        This helps:
+            Reduce initial bundle size
+            Improve app loading speed
+            Optimize user experience
+    ✅ React's Way of Lazy Loading Components
+        React provides:
+
+        React.lazy() — to dynamically load components
+
+        <Suspense> — to show fallback UI while the component is loading
+
+    ✅ Simple Example — Lazy Loaded Component
+        📁 Components/FancyButton.js
+        
+        export default function FancyButton() {
+        return <button>I'm a Lazy Loaded Button!</button>;
+        }
+    📁 App.js
+    
+        import { Suspense, lazy } from 'react';
+
+        const FancyButton = lazy(() => import('./Components/FancyButton'));
+
+        function App() {
+        return (
+            <div>
+            <h1>Welcome to My App</h1>
+            
+            <Suspense fallback={<div>Loading Button...</div>}>
+                <FancyButton />
+            </Suspense>
+            </div>
+        );
+        }
+
+        export default App;
+    ✅ How This Works:
+        Step	What Happens
+        1	App loads normally with the main bundle
+        2	<FancyButton /> is not loaded immediately
+        3	When the component is rendered, React dynamically imports it
+        4	While loading, <Suspense fallback> shows
+        5	Once loaded, FancyButton is displayed
+
+✅ 4️⃣ What is Code Splitting?
+    Code Splitting means splitting your app’s JavaScript bundle into smaller chunks that can be loaded separately.
+    Achieved using dynamic import() and bundlers like Webpack.
+    React supports it naturally via lazy loading.
+
+    const Page = React.lazy(() => import('./Page'));
+    💬 Why is this useful?
+        “Code splitting allows you to reduce the initial JavaScript bundle size, improving page load times and user experience.”
+
+✅ 5️⃣ How Do You Prevent Unnecessary Re-renders in React?
+    ✅ Use React.memo for functional components to avoid re-rendering if props don't change.
+    ✅ Use useCallback to memoize functions passed as props.
+    ✅ Use useMemo to memoize expensive computations.
+    ✅ Keep state local to components that need it.
+    ✅ Avoid creating new objects/arrays inside render if not needed.
+    ✅ Use keys properly in lists to avoid remounting.
+
+    💬 Example:
+        const MemoizedComponent = React.memo(({ data }) => {
+        return <div>{data}</div>;
+        });

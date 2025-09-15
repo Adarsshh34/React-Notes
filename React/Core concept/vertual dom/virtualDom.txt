@@ -1,0 +1,41 @@
+✅ How Does React Use Virtual DOM?
+1️⃣ Render Phase (in Memory)
+    When your React component's state or props change, React creates a new Virtual DOM tree representing the UI after the change.
+2️⃣ Diffing (Reconciliation)
+    React compares the new Virtual DOM with the previous Virtual DOM
+    This is done using a diffing algorithm to identify changes (nodes added, removed, updated)
+3️⃣ Commit Phase (DOM Updates)
+    Only the changed elements are updated in the real DOM
+    This process is called reconciliation
+
+✅ Advantages of Virtual DOM:
+    ✅ Improves performance by minimizing real DOM manipulations
+    ✅ Makes React’s declarative approach possible
+    ✅ Enables smooth UI updates even with complex changes
+
+
+
+✅ 1️⃣ React — Uses Virtual DOM (VDOM)
+    React creates a Virtual DOM tree on each render.
+    Uses Diffing Algorithm (Reconciliation) to compare the old and new Virtual DOM.
+    Only the minimal set of real DOM operations is applied.
+    React’s approach is unidirectional data flow — you explicitly trigger updates via setState or hooks.
+    💬 Key Point:
+        React’s Virtual DOM is pure JavaScript object, and changes are applied only after diffing.
+
+✅ 2️⃣ Vue.js — Uses Virtual DOM + Reactive System
+    Vue also uses a Virtual DOM for efficient rendering, similar to React.
+    But Vue has a reactive dependency tracking system (reactivity system)
+    When a data property changes, Vue knows exactly which components depend on it.
+    It updates only the necessary parts without traversing the entire Virtual DOM in many cases.
+    💬 Key Difference from React:
+        Vue combines Virtual DOM + Reactive Data System, so updates are more targeted and sometimes faster in smaller apps.
+
+✅ 3️⃣ Angular — Does NOT use Virtual DOM (Uses Real DOM + Change Detection)
+    Angular uses a change detection mechanism with real DOM updates.
+    When data changes, Angular triggers change detection on the entire component tree.
+    It compares the current model/state with the view and updates the real DOM if needed.
+    Uses concepts like Zones (zone.js) to detect asynchronous changes.
+    💬 Key Difference from React/Vue:
+        Angular does not use Virtual DOM, it uses change detection + real DOM updates.
+        It relies on its templating engine and bindings.
