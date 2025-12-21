@@ -32,4 +32,5 @@ console.log('Hello console')
 
 
 // Even when you type in the input which does not affect count it rerun expensivecalculation again
+// UseMemo is applied over method level
 
