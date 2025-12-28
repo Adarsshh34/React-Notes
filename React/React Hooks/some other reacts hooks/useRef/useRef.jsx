@@ -1,8 +1,13 @@
+useRef is a React Hook that returns a mutable object:
+
+const ref = useRef(initialValue);
+    ref.current holds the value
+    The value persists across renders
+    Updating ref.current does NOT trigger a re-render
+
 useRef -> 
   DOM Access with useRef
   Persisting Values Without Re-render
-
-
 
 import React from 'react';
 import { useEffect ,useRef } from 'react';
@@ -34,3 +39,4 @@ export function App(props) {
 // Log to console
 
 console.log('Hello console')
+
