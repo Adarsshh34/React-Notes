@@ -27,3 +27,25 @@ Dependency Array
     Runs:
     On first render
     Whenever count changes
+
+useEffect timeline
+    useEffect(() => {
+        console.log("Effect runs");
+        console.log(count);
+    
+        return () => {
+          console.log("Cleanup runs");
+          console.log(count);
+        };
+      }, [count]);
+    output when state changes from 0 to 1
+    Cleanup runs
+    0
+    Effect runs
+    1
+
+what we usually do in clean up block of useeffect
+  cleaning up whatever effect is started
+  in case of setInterval/setTimeout we need to destroy it else it create multiple timers or memory leak.
+  in case of add/removing listerner in effect we need to do opposite in clean up code
+
