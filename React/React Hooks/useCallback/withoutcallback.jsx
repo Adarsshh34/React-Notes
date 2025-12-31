@@ -1,31 +1,30 @@
-import React from 'react';
-import { useState ,useMemo} from 'react';
+without using callback
+function App() {
+  const [count, setCount] = React.useState(0);
 
-const Button = React.memo(({ handleClick }) => {
-  console.log('Button rendered');
-  return <button onClick={handleClick}>Click Me !</button>;
-});
-
-export function App(props) {
-  const [count, setCount] = useState(0);
-
-  const handleClick = () => {
-    console.log('Button clicked');
+  const sayHello = () => {
+    console.log("Hello");
   };
 
-  
   return (
-    <div className='App'>
-      <div>
-        <p>Count: {count}</p>
-        <Button handleClick={handleClick} />
-        <button onClick={() => setCount(count + 1)}>Increment Count</button>
-      </div>
-    </div>
+    <>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <Child sayHello={sayHello} />
+    </>
   );
 }
 
-// Log to console
-console.log('Hello console')
+const Child = React.memo(({ sayHello }) => {
+  console.log("Child rendered");
+  return <button onClick={sayHello}>Say Hello</button>;
+});
 
-// Even when you click "Increment Count," the Button component re-renders because handleClick gets recreated on each render.
+Note : sayHello method is send as a prop to child component
+What happens when you click Increase
+count changes
+App re-renders
+sayHello is created again
+React thinks prop changed
+Child rendered ❌
+
+
