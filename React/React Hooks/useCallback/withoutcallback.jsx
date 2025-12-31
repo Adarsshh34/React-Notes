@@ -27,4 +27,7 @@ sayHello is created again
 React thinks prop changed
 Child rendered ❌
 
+Even though Child doesn’t use count.
+
+
 
