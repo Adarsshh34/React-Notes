@@ -1,3 +1,5 @@
+useCallback prevents an unnecessary re-render of a memoized child component by keeping the same function reference across renders.
+  
 import React from 'react';
 import { useState ,useCallback } from 'react';
 
@@ -28,5 +30,5 @@ export function App(props) {
 // Log to console
 console.log('Hello console')
 
-
 // Now, handleClick remains the same instance on each render, so Button doesn’t re-render unnecessarily.
+
