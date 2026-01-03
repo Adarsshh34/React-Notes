@@ -16,9 +16,11 @@ Named Export (Direct Export)
   Can have many exports
   Import name must match exactly
   Encourages clear API
-  // mathUtils.js
+
+  mathUtils.js
   export const add = (a, b) => a + b;
   export const subtract = (a, b) => a - b;
+
   import with same name
   import { add, subtract } from "./mathUtils";
   ✅ Import with alias:
