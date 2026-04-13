@@ -1,6 +1,6 @@
 without using callback
 function App() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
 
   const sayHello = () => {
     console.log("Hello");
