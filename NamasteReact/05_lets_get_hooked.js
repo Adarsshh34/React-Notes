@@ -16,5 +16,19 @@ JS let and const that's why we use useState so that it update the state and also
 
 # useState
 
+# Reconciliation Alogorithm (React Fiber) 
+Note: this comes in React 16 called as React Fiber
+
+Real Dom -> <div></div>
+Virtual Dom -> representation of actual dom
+React element which we create using React.createElement() it create object 
+virtual dom is basically this object (JS Object )
+
+Diff Alogirthm -> find out difference between old virtual dom and new virtual dom and it will update
+                  Real Dom at every Render cycle
+Source : https://github.com/acdlite/react-fiber-architecture
+
+
+
 
 
