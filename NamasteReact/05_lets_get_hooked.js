@@ -15,6 +15,7 @@ if we want that when variable changes ui should re-render itself, this is not po
 JS let and const that's why we use useState so that it update the state and also triggers re-render
 
 # useState
+Note: Never create useState variable inside if-else or for loop
 
 # Reconciliation Alogorithm (React Fiber) 
 Note: this comes in React 16 called as React Fiber
