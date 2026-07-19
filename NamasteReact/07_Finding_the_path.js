@@ -59,5 +59,10 @@ import { Link } from "react-router-dom";
 
 # Single Page Application
 Why react is called single page application -> 
-  when routes changes website doesn't reload because 
-  React does not reload instead React just replaces Component
+  1.when routes changes website doesn't reload because 
+    React does not reload instead React just replaces Component
+  2. Client side routing
+
+#Graph QL
+
+
