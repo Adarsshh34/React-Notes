@@ -21,7 +21,7 @@ export default User;                                              export default
   render()
   ComponentDidMount()
 
-= Interview Question : if there are 
+ # Interview Question : if there are 
   Parent constructor,Parent render, Child ComponentDidMount
   Child constructor,Child render, Child ComponentDidMount
 what will be the sequence of execution
@@ -32,5 +32,29 @@ Child Constructor
 Child Render
 Child ComponentDidMount
 Parent ComponentDidMount
+
+# Interview Question : if there are multiple child component 
+  e.g. Parent1
+        Child1
+        Child2
+Then what will the pattern for constructor, render and componentdidmount
+ANS: 
+Parent Constructor
+Parent Render
+Child 1 Constructor
+Child 1 Render
+Child 2 Constructor
+Child 2 Render
+Child 1 ComponentDidMount
+Child 2 ComponentDidMount
+Parent ComponentDidMount
+Why react does this: 
+  React runs in 2 phases as in image "Render" and "Commit"
+  In Render phase constructor and Render gets executed
+  to optimize react application, when commit phase get started react tries to manipulate DOM and 
+  DOM Manipulation is most expensive thing so react batch both componentDidMount and execute them
+  (Basically it delay most expensive operaion which is DOM Manipulation so that it get to know what actually need to be updated i.e final update of dom)
+
+
 
 
