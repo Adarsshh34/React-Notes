@@ -55,6 +55,37 @@ Why react does this:
   DOM Manipulation is most expensive thing so react batch both componentDidMount and execute them
   (Basically it delay most expensive operaion which is DOM Manipulation so that it get to know what actually need to be updated i.e final update of dom)
 
+# Imp points
+constructor -> render -> componentDidMount
+Mounting cycle -> when component renders once
+In render, the ui is been rendered with default values present in constructor
+Updating cycle -> setState execute in this cycle
+React trigger render once again (with updated state)
+
+-------MOUNTING CYCLE--------
+constructor (dummy data)
+render (dummy data)
+  <HTML Dummy>
+ComponentDidMount
+  <API CALL>
+  <this.setState> -> state variable is updated
+
+-------UPDATE CYClE------------
+render (API data or updated data)
+  <HTML API Data> -> HTML is loaded with HTML data
+ComponentDidUpdate
+
+------UNMOUNTING CYCLE-----------
+componentWillUnMount  -> this will called when component will be gone from the page 
+                          eg. navigating to new page
+
+
+Question ?
+ 1. why we do not write async will using useEffect to make api call
+ 2. why we write construtor(props)
+
+
+
 
 
 
