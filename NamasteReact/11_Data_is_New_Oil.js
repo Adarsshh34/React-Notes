@@ -31,3 +31,38 @@ return restaurant.info.promoted ? (
             <Restaurant key={restaurant.info.id} resdata={restaurant.info} />
           );
 
+# Build Accordian
+
+
+# React Context
+step 1: 
+Create context using createContext()
+import { createContext } from "react";
+const UserContext = createContext({
+  loggedIn: "Default User",
+});
+export default UserContext;
+
+step 2: 
+Use context in app
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
+
+Note: Since class based component does not have hooks so we can't use useContext in class base component
+      But there is a way to use this in class based component
+
+import UserContext from "../utils/UserContext";
+
+<UserContext.Consumer>
+            {(data) => (      -> we have to write arrow function which will receive data
+              <>                    and we can use that 
+                <span>LoggedIn User: </span>
+                <span>{data.loggedIn}</span>
+              </>
+            )}
+</UserContext.Consumer>
+
+
+
+
+
