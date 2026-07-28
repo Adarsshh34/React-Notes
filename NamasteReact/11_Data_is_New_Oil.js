@@ -62,6 +62,29 @@ import UserContext from "../utils/UserContext";
             )}
 </UserContext.Consumer>
 
+# If we have to update our state we can't update it using above code
+  it is only for reading data 
+ - to alter the state firstly we need to create a state variable like useState
+    const [username, setusername] = useState("default user");
+ - we need to wrap our app with context provider
+   
+  <UserContext.Provider value={{ loggedIn: username }}>   -> overridding value of default value
+    <div className="App">
+      <Header />
+      <Outlet />
+    </div>
+  </UserContext.Provider>
+Note: Context is like global space we can provide to whole app or just a component
+
+Interview Question
+<UserContext.Provider value={{ loggedIn: "Adarsh" }}> -> inside this value is "Adarsh"
+  <div className="App">
+    <UserContext.Provider value={{ loggedIn: "Sneha" }}> -> inside this value is "Sneha"
+        <Header />
+    </UserContext.Provider>
+    <Outlet />
+  </div>
+</UserContext.Provider>
 
 
 
