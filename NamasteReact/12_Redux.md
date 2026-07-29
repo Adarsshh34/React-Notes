@@ -52,6 +52,8 @@ and reducer function will update the cart(slice of store)
 
 # To read data form store -> for that we uses selector
 
+![React Lifecycle](./image1.jpeg)
+
 # Selector
 
 it will read data from the store and it will update the react component
@@ -61,3 +63,5 @@ it will read data from the store and it will update the react component
 when data in store changes react automatically update the component to show new updated data i.e called subscribing to the store
 
 how we subscribe the store -> with selector
+
+![React Lifecycle](./image2.jpeg)
