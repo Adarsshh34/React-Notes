@@ -1,193 +1,63 @@
 # Redux
 
-Redux is **not mandatory** and is primarily used in **large-scale applications**.
+redux is not mandatory
 
-- Redux is **not part of React**.
-- Redux is a **state management library**.
-- Zustand is another popular state management library similar to Redux.
+it is used in large scale application
 
-For React applications, we commonly use the following libraries:
+redux is not only library Zustand is similar like redux for state management
 
-- **react-redux**
-- **Redux Toolkit (RTK)**
+redux is not part of react
 
----
+we will use 2 library
 
-# Redux Store
+- react-redux
+- redux toolkit
 
-The **Redux Store** is a large JavaScript object that stores the application's global state.
+# Store
 
-- It stores every state of the application.
-- It is kept in a **central global location**.
-- Any component can access the data stored inside it.
+redux Store is a large js object which stores every state
 
-```text
-Application
-      │
-      ▼
-+----------------------+
-|     Redux Store      |
-|----------------------|
-| Cart                 |
-| User                 |
-| Theme                |
-| Orders               |
-+----------------------+
-```
-
----
+and it kept at central global space
 
 # Slices
 
-A **Slice** is a logical partition of the Redux Store.
+parts of the redux store is called slices
 
-A single Redux Store can contain multiple slices.
+one store can have multiple slices i.e multiple parts
 
-### Example (Food Ordering App)
+it is basically logicall partition of the store
 
-- Cart Slice
-- Logged-in User Slice
-- Theme Slice (Dark/Light Mode)
+E.g. for our food ordering app
 
-```text
-Redux Store
-│
-├── Cart Slice
-├── User Slice
-└── Theme Slice
-```
+- slice for cart data
+- slice for loggedin user
+- slice for theme (dark/light mode)
 
-### Important
+so this is slice, logical paratition of the store
 
-React/Redux follows the principle of **immutable state**.
+- React says that you can't directly modify slice (i.e store)
+  we need to dispatch our action which would execute a function which will update the store
 
-You **should not modify a slice directly**.
+- In our food ordering app
+  when user click on "add to cart" btn a action would be dispatched which will calls a function
+  and that function will update the slice of the store which is related to cart
 
-Instead:
-
-1. Dispatch an action.
-2. The action calls a reducer.
-3. The reducer updates the appropriate slice of the store.
-
-### Example
-
-When the user clicks the **"Add to Cart"** button:
-
-```text
-User clicks "Add to Cart"
-            │
-            ▼
-     Dispatch Action
-            │
-            ▼
-      Reducer Function
-            │
-            ▼
-Updates Cart Slice
-            │
-            ▼
-Redux Store Updated
-```
-
----
+ # in above case function that updates the store is called REDUCER
 
 # Reducer
 
-A **Reducer** is a function that updates the Redux Store.
+when "add to cart" btn is clicked it dispatches the action and calls reducer function
 
-When an action is dispatched, the corresponding reducer executes and updates the required slice.
+and reducer function will update the cart(slice of store)
 
-### Example
-
-```text
-"Add to Cart" Button
-        │
-        ▼
-Dispatch(addItem)
-        │
-        ▼
-Reducer
-        │
-        ▼
-Updates Cart Slice
-```
-
----
+# To read data form store -> for that we uses selector
 
 # Selector
 
-A **Selector** is used to read data from the Redux Store.
+it will read data from the store and it will update the react component
 
-It allows React components to access only the data they need.
+# subscribing to the store
 
-### Example
+when data in store changes react automatically update the component to show new updated data i.e called subscribing to the store
 
-```javascript
-import { useSelector } from "react-redux";
-
-const cartItems = useSelector((store) => store.cart.items);
-```
-
----
-
-# Subscribing to the Store
-
-When a component uses `useSelector()`, it automatically **subscribes** to that part of the Redux Store.
-
-Whenever the selected state changes:
-
-1. The Redux Store is updated.
-2. The selector detects the change.
-3. React automatically re-renders the component with the latest data.
-
-```text
-Redux Store Changes
-        │
-        ▼
-Selector Detects Change
-        │
-        ▼
-React Component Re-renders
-        │
-        ▼
-Updated UI
-```
-
----
-
-# Complete Redux Flow
-
-```text
-User Action
-     │
-     ▼
-Dispatch Action
-     │
-     ▼
-Reducer
-     │
-     ▼
-Redux Store Updated
-     │
-     ▼
-Selector Reads Data
-     │
-     ▼
-React Component Re-renders
-```
-
----
-
-# Summary
-
-- Redux is **not mandatory**.
-- Redux is **not part of React**.
-- Redux is a **state management library**.
-- **Redux Toolkit** is the recommended way to write Redux logic.
-- The **Redux Store** is a central JavaScript object that stores global application state.
-- The store is divided into **Slices**.
-- Never modify a slice directly.
-- Dispatch an **Action** to request a state update.
-- A **Reducer** updates the store.
-- A **Selector** reads data from the store.
-- Components using `useSelector()` automatically subscribe to store updates and re-render when the selected state changes.
+how we subscribe the store -> with selector
