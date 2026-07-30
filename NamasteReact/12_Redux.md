@@ -65,3 +65,72 @@ when data in store changes react automatically update the component to show new 
 how we subscribe the store -> with selector
 
 ![React Lifecycle](./image2.jpeg)
+
+# Redux use case 
+step 1: configure store
+```
+import { configureStore } from "@reduxjs/toolkit";
+
+const appStore = configureStore({});
+export default appStore;
+```
+step 2: wrap the entire app with provider
+
+```
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+
+<Provider store={appStore}>
+  <App/>
+</Provider>
+````
+Question?
+why configureStore is imported from @reduxjs/toolkit and Provider from react-redux
+ANS:-> because creating store is a of reduxjs/toolkit and Provider helps to provide store to entire application
+        so it is a react functionality
+
+step 3: Create slice
+slice will have intialState and reducers function which will helps to update the state
+```
+import { createSlice } from "@reduxjs/toolkit";
+
+const cartSlice = createSlice({
+  name: "cart",
+  initialState: {
+    items: [],
+  },
+  reducers: {
+    addItem: (state, action) => {
+      state.items.push(action.payload);
+    },
+    removeItem: (state, action) => {
+      state.items.pop();
+    },
+    clearCart: (state) => {
+      state.items.length = 0;
+    },
+  },
+});
+
+export default cartSlice.reducer;
+export const { addItem, removeItem, clearCart } = cartSlice.actions;
+```
+
+step 4: How to read store data
+subscribing the store using a selector
+```
+import {useSelector} from "react-redux";
+const cart = useSelector((store)=>store.cart.items);
+```
+
+step 5: how to add item in store (dispatch action)
+```
+import {useDispatch} from "react-redux";
+import {addItem} from "../utils/cartSlice"
+
+const dispatch = useDispatch(); 
+const handleitem =()=>{
+  dispacth(addItem("pizza"))
+
+}
+```
