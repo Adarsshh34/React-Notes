@@ -134,3 +134,23 @@ const handleitem =()=>{
 
 }
 ```
+
+# Interview Question
+
+1. while subscribing store using selector
+```
+1.
+const cartItem = useSelector((store)=>store.cart.items)
+```
+```
+2.
+const store = useSelector((store)=>store)
+const cartItem = store.cart.item
+```
+both the code is same but\
+In case 1 we are only subscribing to cart.items and In case 2 we are subscribing to entire store\
+since store has many slices you change in any slice will update the component in case 2\
+case 1 is optimized because it will only update when cart slice store is getting updated.\
+always subscribe to smaller portion\
+
+2. 
