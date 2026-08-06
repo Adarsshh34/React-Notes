@@ -35,18 +35,18 @@ return restaurant.info.promoted ? (
 
 
 # React Context
-step 1: 
-Create context using createContext()
+step 1: Create context using createContext()
 import { createContext } from "react";
 const UserContext = createContext({
   loggedIn: "Default User",
 });
 export default UserContext;
 
-step 2: 
-Use context in app
+step 2: Use context in app
 import UserContext from "../utils/UserContext";
 import { useContext } from "react";
+const data = useContext(UserContext);
+<div>{data.loggedIn}</div>
 
 Note: Since class based component does not have hooks so we can't use useContext in class base component
       But there is a way to use this in class based component
