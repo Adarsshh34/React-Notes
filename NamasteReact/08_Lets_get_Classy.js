@@ -81,7 +81,26 @@ componentWillUnMount  -> this will called when component will be gone from the p
 
 
 Question ?
- 1. why we do not write async will using useEffect to make api call
+ 1. why we do not write async while using useEffect to make api call
+    ANS: useEffect expect its callback function to return undefined(nothing) or a cleanup function and async function always returns Promise
+          which doesn't match what React expects.
+         What happens if you write async?
+            useEffect(async () => {
+              const response = await fetch(url);
+              const data = await response.json();
+              setData(data);
+            }, []);
+    -> it will not throw an error but react would warn
+    useEffect(() => {   -> it is equivalent to this
+      return Promise;
+    }, []);
+    -> React cannot use promise as a cleanup function
+     ** follow up question
+      when we don't explicitly write clean up function in that case what useeffect return 
+        useEffect(() => {                          useEffect(() => {
+          fetchData();              ->               fetchData();
+        }, []);                equivalent to         return undefined;
+                                                   }, []);
  2. why we write construtor(props)
 
 
