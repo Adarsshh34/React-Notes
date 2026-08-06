@@ -102,6 +102,59 @@ Question ?
         }, []);                equivalent to         return undefined;
                                                    }, []);
  2. why we write construtor(props)
+    ANS: 
+        i. To initialize the component (constructor).
+        ii. To make this.props available inside the constructor (super(props)).
+      What is a constructor? -> A constructor is a special method of a JavaScript class that runs automatically when an object is created.
+
+      Example:
+      class Person {
+        constructor(name) {
+          console.log("Constructor called");
+          this.name = name;
+        }
+      }
+      const p = new Person("Adarsh");
+
+      Output:
+      Constructor called
+      
+      Similarly, when React creates your component:
+      <User />
+      
+      React internally does something like:
+      new User(props);
+      So the constructor executes first.
+        
+      Why do we write constructor(props)?
+      
+      React passes all the props to the constructor.
+      class User extends React.Component {
+        constructor(props) {
+          super(props);
+          console.log(props);
+        }
+        render() {
+          return <h1>Hello</h1>;
+        }
+      }
+      
+      If the component is used like this:
+      <User name="Adarsh" age={25} />
+      Then inside the constructor:
+      props is -> 
+      {
+        name: "Adarsh",
+        age: 25
+      }
+
+      Why do we write super(props)?  -> Your class extends React.Component, So React.Component is the parent class.
+      When you create a child class in JavaScript, you must call the parent constructor before using this.
+      super(props) calls the constructor of React.Component.
+      It initializes:
+        - this
+        - this.props
+        - other internal React functionality
 
 
 
