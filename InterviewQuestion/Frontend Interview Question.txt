@@ -1,1 +1,49 @@
+* Questions jo mujhe nahi aate
 
+# HTML & CSS
+1. position: static, fixed, relative, absolute, sticky
+static is default value and for all others value we can set left right top bottom
+fixed -> its position become fixed to the screen - if we scroll its position not changed e.g accept cookies msg
+sticky -> same as fixed but it gets scroll and if we scroll more its stick to its position e.g. ad in geeksforgeeks website
+absolute -> it is used in child element (with parent position as relative) to position it with respect to parent
+relative -> it is used to change position of element relative to its own position
+
+
+
+# Javascript
+1. why were arrow function introduced when traditional already existed
+Less boilerplate
+Traditional functions have their own this, and its value depends on how the function is called. Arrow functions do not have their own this.Instead, they take this from their lexical/enclosing scope.
+
+2. What are Generator Functions
+A generator function in JavaScript is a special type of function that can pause its execution and later resume from where it stopped.
+function* generator() {
+  console.log("A");
+  yield 1;
+
+  console.log("B");
+  yield 2;
+
+  console.log("C");
+  yield 3;
+}
+const gen = generator();
+console.log(gen.next());  -> produce next next value as we call gen.next()
+
+3. difference between map, filter, reduce, foreach
+map → transform
+filter → select
+reduce → combine
+forEach → do something
+
+4. difference between localstorage and session storage
+Feature	                                 localStorage	                    sessionStorage
+Lifetime	                               Until manually removed	       Until the tab/window session ends
+Survives closing tab?                      	✅ Yes	                          ❌ No
+Shared across tabs?	✅                   Same origin	                    ❌ Separate per tab
+Capacity	Usually                        ~5–10 MB	Usually                    ~5–10 MB
+Sent automatically with HTTP requests?	  ❌ No	                               ❌ No
+
+
+
+# React js
