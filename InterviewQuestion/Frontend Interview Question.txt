@@ -1,5 +1,5 @@
 * Questions jo mujhe nahi aate
-
+====================================================================================================================================================================
 # HTML & CSS
 1. position: static, fixed, relative, absolute, sticky
 static is default value and for all others value we can set left right top bottom
@@ -9,7 +9,7 @@ absolute -> it is used in child element (with parent position as relative) to po
 relative -> it is used to change position of element relative to its own position
 
 
-
+==================================================================================================================================================================
 # Javascript
 1. why were arrow function introduced when traditional already existed
 Less boilerplate
@@ -44,6 +44,9 @@ Shared across tabs?	✅                   Same origin	                    ❌ Se
 Capacity	Usually                        ~5–10 MB	Usually                    ~5–10 MB
 Sent automatically with HTTP requests?	  ❌ No	                               ❌ No
 
-
-
+=================================================================================================================================================================
 # React js
+
+1. difference between useEffect and useLayoutEffect
+useEffect → after the browser paints
+useLayoutEffect → before the browser paints
